@@ -4,7 +4,7 @@ import logging
 
 app = Flask(__name__)
 app.secret_key = 'random secret key!'
-socketio = SocketIO(app, cors_allowed_origins="[]")
+socketio = SocketIO(app, cors_allowed_origins="https://sevebhub-stable.web.app")
 
 
 @socketio.on('join')
