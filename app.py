@@ -3,12 +3,15 @@ from flask_socketio import SocketIO, emit, join_room
 import logging
 
 app = Flask(__name__)
-app.secret_key = 'random secret key!'
-socketio = SocketIO(app, cors_allowed_origins="*")
+# app.secret_key = 'random secret key!'
+# socketio = SocketIO(app, cors_allowed_origins="")
+socketio = SocketIO(app)
+socketio.init_app(app, cors_allowed_origins="*")
 
 
-@socketio.on('join')
-def join(message):
+
+@socketio.on('connect')
+def connect(message):
     app.logger.info("connected")
     # username = message['username']
     # room = message['room']
